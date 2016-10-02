@@ -11,7 +11,8 @@ public class Babylonian {
   
   //Private field number
   private double number;
-  private double guess;
+  private double iguess;
+  private double nguess;
   private double error;
   
   //Creates a no argument constructor that prompts the user for field values
@@ -43,12 +44,13 @@ public class Babylonian {
     this.number = numberInput;
     this.error = errorInput;
     
-    if (Math.abs((number - (guess*guess))) < error ) {
-      return guess;
+    if (Math.abs((number - (nguess*nguess))) < error ) {
+      return nguess;
     }
     else {
-      guess = number*0.5;
-      return calcSquareRoot(guess,error);
+      iguess = number*0.5;
+      nguess = ((iguess+number)/iguess)*0.5;
+      return calcSquareRoot(nguess,error);
     }
     
   }
