@@ -29,28 +29,22 @@ public class Babylonian {
     this.error = errorInput;
   }
   
-  //Getter method for number
-  public double getNumber(){
-    return number;
-  }
-  
   //Convience method
   public double calcSquareRoot(){
-    return calcSquareRoot(number,error);
+    iguess = number*0.5;
+    return calcSquareRoot(iguess);
   }
   
   //Creates a method that will calculate square root
-  public double calcSquareRoot(double numberInput, double errorInput){
-    this.number = numberInput;
-    this.error = errorInput;
+  public double calcSquareRoot(double nguessInput){
+    this.nguess = nguessInput;
     
     if (Math.abs((number - (nguess*nguess))) < error ) {
       return nguess;
     }
     else {
-      iguess = number*0.5;
-      nguess = ((iguess+number)/iguess)*0.5;
-      return calcSquareRoot(nguess,error);
+      nguess = ((nguess+number)/nguess)*0.5;
+      return calcSquareRoot(nguess);
     }
     
   }
