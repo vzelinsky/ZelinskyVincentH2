@@ -6,7 +6,7 @@
 import java.util.Scanner;
 
 public class Babylonian {
-  
+  //Creates scanner object
   Scanner scanner = new Scanner(System.in);
   
   //Private field number
@@ -19,7 +19,7 @@ public class Babylonian {
   public Babylonian(){
     System.out.println("Please enter the number you would like to find the square root of: ");
     this.number = scanner.nextDouble(); 
-    System.out.println("Please enter acceptable accuracy(0.1,0.01,etc): ");
+    System.out.println("Please enter acceptable accuracy(10,1,0.1,0.01,etc): ");
     this.error = scanner.nextDouble();
   }
   
@@ -38,10 +38,11 @@ public class Babylonian {
   //Creates a method that will calculate square root
   public double calcSquareRoot(double nguessInput){
     this.nguess = nguessInput;
-    
+    //If the difference between number and nguess^2 is less than error then print nguess
     if (Math.abs((number - (nguess*nguess))) < error ) {
       return nguess;
     }
+    //Then recursive call
     else {
       nguess = ((nguess+number)/nguess)*0.5;
       return calcSquareRoot(nguess);
