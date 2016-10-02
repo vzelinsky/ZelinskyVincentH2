@@ -7,19 +7,22 @@ import java.util.Scanner;
 
 public class Babylonian {
   
+  Scanner scanner = new Scanner(System.in);
+  
   //Private field number
   private double number;
   private double guess;
   private double error;
   
   //Creates a constructor that accepts a double value
-  public Babylonian(double input){
-    this.number = input;
+  public Babylonian(){
+    System.out.println("Please enter the number you would like to find the square root of: ");
+    this.number = scanner.nextDouble(); 
   }
   
   public Babylonian(double numberInput, double errorInput) {
     this.number = numberInput;
-    this.error = errorInput*0.01;
+    this.error = errorInput;
   }
   
   //Getter method for number
@@ -29,8 +32,8 @@ public class Babylonian {
   
   //Creates a method that will calculate square root
   public double calcSquareRoot(){
-    if (number == 0) {
-      return 0;
+    if (Math.abs((number - (guess*guess))) < error ) {
+      return guess;
     }
     else {
       guess = number*0.5;
