@@ -12,7 +12,7 @@ public class Recursion {
     //Creates a Scanner object called scanner
     Scanner scanner = new Scanner(System.in);
     //Creates a Babylonian object called squareRoot and passes 9 to it
-    Babylonian squareRoot = new Babylonian(9);
+    Babylonian squareRoot = new Babylonian();
     
     //Calls the calcSquareRoot method of Babylonian and prints to console
     System.out.println(squareRoot.calcSquareRoot());
