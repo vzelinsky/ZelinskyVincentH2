@@ -19,7 +19,7 @@ public class Babylonian {
   public Babylonian(){
     System.out.println("Please enter the number you would like to find the square root of: ");
     this.number = scanner.nextDouble(); 
-    System.out.println("Please enter acceptable accuracy(10,1,0.1,0.01,etc): ");
+    System.out.println("Please enter acceptable accuracy(within 10,1,0.1,0.01,etc): ");
     this.error = scanner.nextDouble();
   }
   
@@ -29,13 +29,13 @@ public class Babylonian {
     this.error = errorInput;
   }
   
-  //Convience method
+  //Convenience method
   public double calcSquareRoot(){
     iguess = number*0.5;
     return calcSquareRoot(iguess);
   }
   
-  //Creates a method that will calculate square root
+  //Overloades the calcSquareRoot method to calculate square root
   public double calcSquareRoot(double nguessInput){
     this.nguess = nguessInput;
     //If the difference between number and nguess^2 is less than error then print nguess
@@ -44,7 +44,7 @@ public class Babylonian {
     }
     //Then recursive call
     else {
-      nguess = ((nguess+number)/nguess)*0.5;
+      nguess = (nguess+(number/nguess))*0.5;
       return calcSquareRoot(nguess);
     }
     
